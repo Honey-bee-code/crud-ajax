@@ -40,6 +40,8 @@ $(document).on('click', '.edit_data', function(){
 
 $(document).on('click', '.hapus_data', function(){
     var id = $(this).attr('id');
+    var jawab = confirm("Yakinkah Anda?");
+    if (jawab === true){
     $.ajax({
         type: 'POST',
         url: "hapus_data.php",
@@ -50,4 +52,7 @@ $(document).on('click', '.hapus_data', function(){
             console.log(responseText);
         }
     });
+    } else {
+        return false;
+   }
 });
